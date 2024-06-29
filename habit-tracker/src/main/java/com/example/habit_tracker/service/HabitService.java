@@ -29,15 +29,4 @@ public class HabitService {
     habitRepository.delete(habit);
   }
 
-  public Habit updateHabit(String id, Habit habitDetails){
-    Habit habit =  habitRepository.findById(id).orElseThrow(() -> new RuntimeException("Habit not found"));
-    
-    habit.setName(habitDetails.getName());
-    habit.setDescription(habitDetails.getDescription());
-    habit.setCompleted(habitDetails.isCompleted());
-    
-    return habitRepository.save(habit);
-  }
-
-  
 }
